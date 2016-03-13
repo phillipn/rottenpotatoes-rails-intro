@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings]
     end
     
-    @movies = Movie.all
+    @movies = Movie.order(params[:sort])
     @sort = session[:sort]
     
     if session[:ratings] && session[:sort]
