@@ -23,6 +23,8 @@ class MoviesController < ApplicationController
     end
     
     @movies = Movie.order(session[:sort])
+    @movie_title = "hilite" if session[:sort] == "title"
+    @r_date = "hilite" if session[:sort] == "release_date"
     
     if params[:sort].nil? && params[:ratings].nil? && session[:ratings]
       @sort = session[:sort]
